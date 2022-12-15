@@ -6,9 +6,9 @@ city = input('Введите город - ')
 with open('API_key/myKey.txt', mode='r+') as file:
    password = file.read()
 
-value = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={password}"
+value = r"https://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
 
-myAPI = requests.get(value)
+myAPI = requests.get(value.format(city,password))
 
 desearicationIntuObject = json.loads(myAPI.text)
 
